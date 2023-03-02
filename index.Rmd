@@ -3,84 +3,70 @@ title: "A3: SPL Library Checkouts"
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+library("knitr")
+library(tidyverse)
+```
+
+```{r echo=FALSE, eval=TRUE, message=FALSE}
+source("summary.R")
+```
+
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+With so much content being consumed online, I was curious to see how that would be reflected in library checkouts. I wanted
+to gain insight into how the reading habits and preferences changed over time when it came to patterns between digital and 
+physical items.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+For the data set I chose to examine patterns between digital and physical checkouts.
+From 2017 to 2023, the total number of physical and digital items checked out was **8,999,132`**
+and **10,166,737** respectively. For every item, digital items were checked out an average of **`r avg_digital`** times
+while physical items were checked out on an average of **`r avg_physical`** times.
 
-These will likely be calculated using your DPLYR skills, answering questions such as:
+Physical items were most checked out in **`r max_physical`** while digital items were most checked out in **`r max_digital`**. 
+The year with the highest digital to physical checkout ratio was **`r digital_physical`**.
 
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
 
 ### The Dataset
 
-- Who collected/published the data?  
-- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
-- What are possible limitations or problems with this data?   (at least 200 words)
+The data for this assignment was collected and published by the Seattle Public Library. The data includes checkout records going back to 2015.
+The data includes more than 800,000 rows of checkout records for physical books, ebooks, audiobooks, DVDs and other items borrowed from the Seattle
+Public Library. The data was collected to help the Seattle Public Library track borrowing patterns of its patrons and make data-driven decision about which 
+items to acquire. When working with this data, its important to consider the privacy of library patrons. While the data does not include identifying 
+information about individual borrowers, its important to treat the data with respect and use it only for legitimate research purposes.
 
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+```{r, echo = FALSE, code = readLines("chart1.R", warn = FALSE)}
 ```
+
+This chart displays the the ratio between digital and physical items checkout by the checkout year. I included this graph to 
+identify changing trends in library usage and item demand. This bar chart shows that digital items initially are not checked 
+out as much as physical items during 2017-2019. However, 2020 shows a huge spike in digital item checkouts and remains at a 
+high value the years following. The graph shows that digital items are generally more in demand than physical items after 2020.
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, code = readLines("chart2.R", warn = FALSE)}
 ```
+
+This chart displays a scatterplot displaying the amount of checkouts for an item by date. This chart features a legend
+showing digital and physical items. I included this chart to show trends and patterns of checkouts overtime. The scatterplot 
+shows a massive increase in digital checkouts after 2020. Additionally, there is a generally a spike in the number of checkouts 
+at the start of each year to the middle of the year.
 
 ### Your Choice
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
-
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, code = readLines("chart3.R", warn = FALSE)}
 ```
 
+This chart displays a pie chart that shows the distribution of checkouts by item type. This chart features a legend
+showing the top five most checked out item types in the data set. I included this chart to provide an overview of 
+the library's collection and what type of materials are in demand. The chart shows that 4 item types in particular
+are the most checked out, and are distributed evenly.
 
